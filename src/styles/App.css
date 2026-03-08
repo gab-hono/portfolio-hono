@@ -1,0 +1,120 @@
+/* ============================================================
+   APP LAYOUT — Persistent shell: header, main, footer
+   ============================================================ */
+
+/* ── Header / top navigation bar ── */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) var(--space-lg);
+  background-color: var(--color-terminal-bar);
+  border-bottom: 2px solid var(--color-ink);
+
+  /* Terminal-window "three dots" effect via pseudo-element */
+}
+
+/* Logo / home link */
+.app-header__logo {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--color-pink);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: opacity var(--transition-fast);
+}
+
+.app-header__logo::before {
+  content: '> ';
+  color: var(--color-blue);
+}
+
+.app-header__logo:hover {
+  opacity: 0.8;
+}
+
+/* Navigation links */
+.app-header__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.app-header__nav a {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-bg);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.app-header__nav a:hover {
+  background-color: var(--color-pink);
+  color: var(--color-ink);
+}
+
+/* Active nav link */
+.app-header__nav a.active {
+  color: var(--color-blue);
+}
+
+/* ── Main content area ── */
+.app-main {
+  min-height: calc(100vh - 60px - 56px);
+  padding: var(--space-xl) var(--space-lg);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Footer ── */
+.app-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md) var(--space-lg);
+  background-color: var(--color-terminal-bar);
+  border-top: 2px solid var(--color-ink);
+  font-size: 0.7rem;
+  color: var(--color-bg-alt);
+  font-family: var(--font-mono);
+  letter-spacing: 0.06em;
+}
+
+/* ── Responsive: mobile nav ── */
+@media (max-width: 600px) {
+  .app-header {
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .app-header__nav {
+    gap: var(--space-md);
+  }
+
+  .app-main {
+    padding: var(--space-lg) var(--space-md);
+  }
+}
+
+/* ── Contact link gets a pill accent to stand out ── */
+.app-header__nav-contact {
+  border: 1.5px solid var(--color-pink) !important;
+  color: var(--color-pink) !important;
+  border-radius: 999px !important;
+  padding: 3px 14px !important;
+}
+
+.app-header__nav-contact:hover,
+.app-header__nav-contact.active {
+  background-color: var(--color-pink) !important;
+  color: var(--color-ink) !important;
+}

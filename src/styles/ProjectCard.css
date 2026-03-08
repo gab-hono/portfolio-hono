@@ -1,0 +1,145 @@
+/* ============================================================
+   PROJECT CARD — Reusable card for grids on category & home
+   ============================================================ */
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border: 2px solid var(--color-ink);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition:
+    transform var(--transition-normal),
+    box-shadow var(--transition-normal);
+  text-decoration: none;
+  color: inherit;
+}
+
+.project-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ── Thumbnail area ── */
+.project-card__thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--color-bg-alt);
+  border-bottom: 2px solid var(--color-ink);
+}
+
+.project-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-card__thumb img {
+  transform: scale(1.04);
+}
+
+/* Placeholder when no image */
+.project-card__thumb--empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-border);
+  font-size: 2rem;
+}
+
+/* ── Category badge overlaid on thumb ── */
+.project-card__category-tag {
+  position: absolute;
+  top: var(--space-sm);
+  left: var(--space-sm);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  background: var(--color-terminal-bar);
+  color: var(--color-bg);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-ink);
+}
+
+/* ── Content area ── */
+.project-card__body {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  flex: 1;
+}
+
+.project-card__type {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.project-card__title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  line-height: 1.2;
+  color: var(--color-ink);
+}
+
+.project-card__year {
+  font-size: 0.7rem;
+  color: var(--color-ink-muted);
+}
+
+.project-card__description {
+  font-size: 0.78rem;
+  color: var(--color-ink-muted);
+  line-height: 1.65;
+  margin-top: var(--space-xs);
+
+  /* Clamp to 3 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Footer row: roles ── */
+.project-card__footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: var(--space-sm) var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.project-card__role {
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  color: var(--color-ink-muted);
+}
+
+/* ── Featured variant (used on Home) ── */
+.project-card--featured {
+  border-color: var(--color-pink);
+  box-shadow: 4px 4px 0 var(--color-pink-dark);
+}
+
+.project-card--featured:hover {
+  box-shadow: 8px 8px 0 var(--color-pink-dark);
+}
+
+.project-card--featured .project-card__title {
+  color: var(--color-ink);
+}

@@ -1,0 +1,135 @@
+/* ============================================================
+   GLOBAL STYLES — Design tokens, reset, base typography
+   ============================================================ */
+
+/* ── Google Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@300;400;500;700&display=swap');
+
+/* ── Design tokens ── */
+:root {
+  /* Colors — trans flag palette */
+  --color-bg:           #fdf8fa;   /* near-white with warm pink tint */
+  --color-bg-alt:       #f5eef2;   /* slightly deeper pink-white */
+  --color-surface:      #ffffff;
+  --color-ink:          #1a1a2e;   /* deep navy-black */
+  --color-ink-muted:    #5a5a72;   /* muted ink with slight blue */
+  --color-pink:         #F5A9B8;   /* trans flag pink */
+  --color-pink-dark:    #d4788c;   /* darker pink for shadows/borders */
+  --color-blue:         #5BCEFA;   /* trans flag blue */
+  --color-blue-dark:    #2a9ecf;   /* darker blue */
+  --color-white-stripe: #ffffff;   /* trans flag white (center stripe) */
+  --color-border:       #e0c8d4;   /* soft pink-tinted border */
+  --color-terminal-bar: #1a1a2e;   /* deep navy terminal titlebar */
+
+  /* Semantic aliases — keeps component files readable */
+  --color-accent:       var(--color-pink);
+  --color-accent-dark:  var(--color-pink-dark);
+  --color-secondary:    var(--color-blue);
+  --color-secondary-dark: var(--color-blue-dark);
+
+  /* Typography */
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-mono:    'JetBrains Mono', 'Courier New', monospace;
+
+  /* Spacing scale */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  32px;
+  --space-xl:  64px;
+  --space-2xl: 128px;
+
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* Shadows */
+  --shadow-sm:  2px 2px 0px rgba(0,0,0,0.15);
+  --shadow-md:  4px 4px 0px rgba(0,0,0,0.15);
+  --shadow-lg:  6px 6px 0px rgba(0,0,0,0.12);
+  --shadow-hover: 8px 8px 0px rgba(0,0,0,0.18);
+
+  /* Transitions */
+  --transition-fast:   150ms ease;
+  --transition-normal: 250ms ease;
+}
+
+/* ── CSS Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-mono);
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  line-height: 1.6;
+  min-height: 100vh;
+
+  /* Subtle grid-paper background texture — pink-tinted lines */
+  background-image:
+    linear-gradient(rgba(245,169,184,0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(91,206,250,0.10) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ── Typography base ── */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* ── Utility: visually-hidden for accessibility ── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── Page fade-in animation ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+  animation: fadeUp 0.5s ease both;
+}

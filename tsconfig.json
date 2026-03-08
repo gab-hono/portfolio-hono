@@ -1,0 +1,12 @@
+{
+  // ── Root tsconfig ──
+  // This file does NOT compile anything directly.
+  // It just references the two sub-configs below.
+  // Remove "composite": true errors by NOT using "references" for the api folder —
+  // the api folder has its own standalone tsconfig instead.
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}

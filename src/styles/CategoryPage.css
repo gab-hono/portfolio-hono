@@ -1,0 +1,88 @@
+/* ============================================================
+   CATEGORY PAGE — Header + projects grid per category
+   ============================================================ */
+
+.category-page {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+/* ── Category header banner ── */
+.category-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  animation: fadeUp 0.4s ease both;
+}
+
+.category-header__breadcrumb {
+  font-size: 0.7rem;
+  color: var(--color-ink-muted);
+  letter-spacing: 0.08em;
+}
+
+.category-header__breadcrumb a {
+  color: var(--color-pink);
+  transition: opacity var(--transition-fast);
+}
+
+.category-header__breadcrumb a:hover {
+  opacity: 0.75;
+}
+
+.category-header__title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.category-header__meta {
+  font-size: 0.75rem;
+  color: var(--color-ink-muted);
+}
+
+/* ── Filter/sort bar ── */
+.category-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+  animation: fadeUp 0.4s ease 0.1s both;
+}
+
+.filter-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  margin-right: var(--space-xs);
+}
+
+/* ── Projects grid ── */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-md);
+  animation: fadeUp 0.4s ease 0.2s both;
+}
+
+/* Empty state */
+.category-empty {
+  grid-column: 1 / -1;
+  padding: var(--space-xl);
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-ink-muted);
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+}

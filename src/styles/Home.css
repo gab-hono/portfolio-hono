@@ -1,0 +1,333 @@
+/* ============================================================
+   HOME PAGE — Hero section, tech stack, featured code projects,
+               and category navigation tiles
+   ============================================================ */
+
+/* ── Page wrapper ── */
+.home {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+/* ── Hero / intro "terminal window" ── */
+.home-hero {
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-ink);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  animation: fadeUp 0.5s ease both;
+}
+
+/* ── Terminal title bar ── */
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--color-terminal-bar);
+  border-bottom: 2px solid rgba(245,169,184,0.3);
+}
+
+.terminal-bar__dots {
+  display: flex;
+  gap: 6px;
+}
+
+.terminal-bar__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0,0,0,0.25);
+}
+
+/* Dots use trans flag colors */
+.terminal-bar__dot--red    { background: var(--color-pink); }
+.terminal-bar__dot--yellow { background: #ffffff; }
+.terminal-bar__dot--green  { background: var(--color-blue); }
+
+.terminal-bar__title {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.06em;
+  margin-left: var(--space-sm);
+}
+
+/* ── Terminal body — hero content ── */
+.home-hero__body {
+  padding: var(--space-xl) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* Shell prompt */
+.home-hero__prompt {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-blue-dark);
+  letter-spacing: 0.08em;
+}
+
+.home-hero__prompt::before {
+  content: '$ ';
+  color: var(--color-pink);
+}
+
+.home-hero__name {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  line-height: 1.05;
+  color: var(--color-ink);
+}
+
+/* Italic pink accent on last name */
+.home-hero__name span {
+  color: var(--color-pink);
+  font-style: italic;
+}
+
+.home-hero__tagline {
+  font-size: 0.85rem;
+  color: var(--color-ink-muted);
+  max-width: 520px;
+  line-height: 1.7;
+}
+
+/* Status / role badges */
+.home-hero__roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-xs);
+}
+
+.role-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border: 1.5px solid var(--color-ink);
+  border-radius: 999px;
+  background: transparent;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.role-badge:hover {
+  background: var(--color-ink);
+  color: var(--color-bg);
+}
+
+/* Pink filled badge */
+.role-badge--pink {
+  background: var(--color-pink);
+  border-color: var(--color-pink-dark);
+  color: var(--color-ink);
+}
+
+/* Blue filled badge */
+.role-badge--blue {
+  background: var(--color-blue);
+  border-color: var(--color-blue-dark);
+  color: var(--color-ink);
+}
+
+/* ── Section heading ── */
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  margin-bottom: var(--space-md);
+  animation: fadeUp 0.5s ease 0.15s both;
+}
+
+.section-heading::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  /* Trans flag gradient divider */
+  background: linear-gradient(90deg, var(--color-pink), var(--color-white-stripe), var(--color-blue));
+}
+
+.section-heading span {
+  color: var(--color-pink);
+  margin-right: 4px;
+}
+
+/* ── Tech Stack section ── */
+.tech-stack {
+  animation: fadeUp 0.5s ease 0.2s both;
+}
+
+/* Four-column grid */
+.tech-stack__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+
+/* Each column card */
+.tech-stack__column {
+  background: var(--color-surface);
+  border: 2px solid var(--color-ink);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.tech-stack__column:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Column header with trans flag color rotation */
+.tech-stack__col-header {
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+  border-bottom: 2px solid var(--color-ink);
+}
+
+.tech-stack__column:nth-child(1) .tech-stack__col-header { background: var(--color-pink); }
+.tech-stack__column:nth-child(2) .tech-stack__col-header { background: var(--color-white-stripe); border-bottom-color: var(--color-border); }
+.tech-stack__column:nth-child(3) .tech-stack__col-header { background: var(--color-white-stripe); border-bottom-color: var(--color-border); }
+.tech-stack__column:nth-child(4) .tech-stack__col-header { background: var(--color-blue); }
+
+/* Column body */
+.tech-stack__col-body {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Skill item */
+.tech-stack__item {
+  font-size: 0.75rem;
+  color: var(--color-ink-muted);
+  line-height: 1.5;
+}
+
+/* Bold highlighted skills */
+.tech-stack__item--highlight {
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+/* ── Featured code projects grid ── */
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-md);
+  animation: fadeUp 0.5s ease 0.3s both;
+}
+
+/* ── Category navigation tiles ── */
+.category-tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  animation: fadeUp 0.5s ease 0.4s both;
+}
+
+.category-tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-lg);
+  border: 2px solid var(--color-ink);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  min-height: 160px;
+  position: relative;
+  overflow: hidden;
+}
+
+.category-tile:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Icon rendered as inline SVG */
+.category-tile__icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+}
+
+.category-tile__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.category-tile__label {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  margin-top: auto;
+  margin-bottom: var(--space-xs);
+}
+
+.category-tile__count {
+  font-size: 0.7rem;
+  color: var(--color-ink-muted);
+  font-family: var(--font-mono);
+}
+
+/* Left accent stripe — trans flag colors per category */
+.category-tile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+}
+
+.category-tile--theatre::before { background: var(--color-pink); }
+.category-tile--sound::before   { background: var(--color-blue); }
+.category-tile--code::before {
+  background: linear-gradient(
+    to bottom,
+    var(--color-pink)         0%   33%,
+    var(--color-white-stripe) 33%  66%,
+    var(--color-blue)         66% 100%
+  );
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .tech-stack__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .home-hero__body {
+    padding: var(--space-lg) var(--space-md);
+  }
+  .category-tiles {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-stack__grid {
+    grid-template-columns: 1fr;
+  }
+}
