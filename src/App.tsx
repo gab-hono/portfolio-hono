@@ -4,7 +4,7 @@
    ============================================================ */
 
 import { Outlet, Link, NavLink } from "react-router"
-import "../src/styles/App.css"
+import "./styles/App.css"
 
 export default function App() {
   return (
